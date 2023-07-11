@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Switch } from '@/components/ui/switch';
 import { Textarea } from '@/components/ui/textarea';
+import { useAppSelector } from '@/redux/store';
 import { IProduct } from '@/types/globalTypes';
 
 import { useState } from 'react';
@@ -12,9 +13,10 @@ import { useState } from 'react';
 export default function Checkout() {
   const [scheduled, setScheduled] = useState<boolean>(false);
 
-  //! Dummy Data
+ const {products, total} = useAppSelector(state => state.cartReducer)
 
-  const products: IProduct[] = [];
+ console.log("products:", products)
+
 
   //! **
 
@@ -129,7 +131,7 @@ export default function Checkout() {
             </div>
             <div className="flex justify-between text-xl font-bold">
               <p>Total</p>
-              <p>81.95$</p>
+              <p>{total}</p>
             </div>
             <Button className="w-full">Checkout</Button>
           </div>

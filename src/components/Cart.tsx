@@ -17,11 +17,9 @@ import { useAppDispatch } from '@/redux/hooks';
 import { addToCart, deleteFromCart, removeOneFromCart } from '@/redux/features/cart/cartSlice';
 
 export default function Cart() {
-  const { products } = useAppSelector((state) => state.cartReducer);
+  const { products, total } = useAppSelector((state) => state.cartReducer);
   const dispatch = useAppDispatch();
 
-  const total = 0;
-  //! **
 
   return (
     <Sheet>
