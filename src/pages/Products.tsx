@@ -8,7 +8,8 @@ import { IProduct } from '@/types/globalTypes';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPriceRange, toggleState } from '@/redux/features/products/productSlice';
-import { useGetProductsQuery } from '@/redux/api/apiSlice';
+import { useGetProductsQuery } from '@/redux/features/products/productApi';
+
 export default function Products() {
 
   const {data, isLoading} = useGetProductsQuery(undefined)
